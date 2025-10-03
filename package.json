@@ -1,0 +1,46 @@
+{
+  "name": "dev-setup-wizard",
+  "version": "1.0.0",
+  "description": "One-click setup for professional JavaScript development workflow",
+  "main": "setup.sh",
+  "scripts": {
+    "test": "echo \"Run ./setup.sh to test the wizard\"",
+    "demo": "echo -e \"1\\n1\\ny\" | ./setup.sh",
+    "demo-react": "echo -e \"1\\n1\\ny\" | ./setup.sh", 
+    "demo-react-native": "echo -e \"1\\n2\\ny\" | ./setup.sh",
+    "demo-nodejs": "echo -e \"1\\n3\\ny\" | ./setup.sh",
+    "demo-general": "echo -e \"1\\n4\\ny\" | ./setup.sh"
+  },
+  "keywords": [
+    "javascript",
+    "development",
+    "setup",
+    "eslint", 
+    "prettier",
+    "husky",
+    "commitlint",
+    "git-hooks",
+    "react",
+    "react-native", 
+    "nodejs",
+    "automation",
+    "developer-tools"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/dev-setup-wizard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/dev-setup-wizard/issues"
+  },
+  "homepage": "https://github.com/yourusername/dev-setup-wizard#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "dev-setup": "./setup.sh"
+  }
+}
