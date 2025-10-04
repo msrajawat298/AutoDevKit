@@ -282,7 +282,7 @@ generate_info() {
     printf "   ${YELLOW}# Local usage:${NC}\n"
     printf "   ${YELLOW}./$output_file${NC}\n"
     printf "\n   ${YELLOW}# Remote usage:${NC}\n"
-    printf "   ${YELLOW}curl -fsSL <your-url>/$output_file | bash${NC}\n"
+    printf "   ${YELLOW}curl -fsSL https://raw.githubusercontent.com/msrajawat298/AutoDevKit/main/$output_file | bash${NC}\n"
     
     printf "\n${CYAN}📤 Share this file:${NC}\n"
     printf "   - Upload to GitHub/GitLab raw URL\n"
