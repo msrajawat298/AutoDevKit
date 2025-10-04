@@ -10,43 +10,73 @@ fi
 
 # Print the main application header
 print_header() {
-    printf "${PURPLE}\n"
+    printf "${BRIGHT_PURPLE}\n"
     printf "╔══════════════════════════════════════════════════════════╗\n"
     printf "║                                                          ║\n"
-    printf "║                  🚀 AutoDevKit 🚀                        ║\n"
+    printf "║                  🚀 ${WHITE}AutoDevKit${BRIGHT_PURPLE} 🚀                        ║\n"
     printf "║                                                          ║\n"
-    printf "║     Choose your technology and get instant setup!        ║\n"
+    printf "║     ${BRIGHT_CYAN}Choose your technology and get instant setup!${BRIGHT_PURPLE}        ║\n"
+    printf "║                                                          ║\n"
+    printf "║     ${LIGHT_GRAY}Press '0' at any prompt to exit${BRIGHT_PURPLE}                     ║\n"
     printf "║                                                          ║\n"
     printf "╚══════════════════════════════════════════════════════════╝\n"
     printf "${NC}\n"
 }
 
-# Success message with green checkmark
+# Success message with bright green checkmark
 print_success() {
-    printf "${GREEN}✅ $1${NC}\n"
+    printf "${BRIGHT_GREEN}✅ $1${NC}\n"
 }
 
 # Information message with package icon
 print_info() {
-    printf "${BLUE}📦 $1${NC}\n"
+    printf "${BRIGHT_BLUE}📦 $1${NC}\n"
 }
 
 # Warning message with warning icon
 print_warning() {
-    printf "${YELLOW}⚠️  $1${NC}\n"
+    printf "${BRIGHT_YELLOW}⚠️  $1${NC}\n"
 }
 
 # Error message with cross icon
 print_error() {
-    printf "${RED}❌ $1${NC}\n"
+    printf "${BRIGHT_RED}❌ $1${NC}\n"
 }
 
 # Configuration display helper
 show_config() {
-    printf "\n${GREEN}🎯 Configuration Selected:${NC}\n"
-    printf "   Project: ${YELLOW}$PROJECT_TYPE${NC}\n"
-    printf "   Technology: ${YELLOW}$TECHNOLOGY${NC}\n" 
-    printf "   Demo Mode: ${YELLOW}$DEMO_MODE${NC}\n"
+    printf "\n${BRIGHT_GREEN}🎯 Configuration Selected:${NC}\n"
+    printf "   ${BRIGHT_CYAN}Project:${NC} ${WHITE}$PROJECT_TYPE${NC}\n"
+    printf "   ${BRIGHT_CYAN}Technology:${NC} ${WHITE}$TECHNOLOGY${NC}\n" 
+    printf "   ${BRIGHT_CYAN}Demo Mode:${NC} ${WHITE}$DEMO_MODE${NC}\n"
+    
+    # Add a confirmation prompt with exit option
+    printf "\n${YELLOW}📋 Ready to proceed with these settings?${NC}\n"
+    printf "  ${GREEN}y)${NC} Yes, let's go!\n"
+    printf "  ${BLUE}n)${NC} No, let me change something\n" 
+    printf "  ${RED}0)${NC} Exit setup\n"
+    printf "\n"
+    read -p "${YELLOW}Continue? (y/n, or 0 to exit): ${NC}" CONTINUE_CHOICE
+    
+    case $CONTINUE_CHOICE in
+        [yY]|[yY][eE][sS]|yes|YES)
+            printf "${GREEN}✅ Great! Starting setup...${NC}\n"
+            ;;
+        [nN]|[nN][oO]|no|NO)
+            printf "${BLUE}🔄 No problem! Let's start over...${NC}\n\n"
+            # Return to main to restart the questions
+            main
+            exit 0
+            ;;
+        0|exit|quit|q)
+            printf "\n${YELLOW}👋 Setup cancelled. Thanks for trying AutoDevKit!${NC}\n\n"
+            exit 0
+            ;;
+        *)
+            printf "\n${RED}❌ Please enter 'y' for yes, 'n' to restart, or '0' to exit.${NC}\n"
+            show_config  # Recursive call
+            ;;
+    esac
 }
 
 # Final completion message
