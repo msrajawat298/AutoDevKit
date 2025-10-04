@@ -9,7 +9,7 @@
 # Usage: curl -fsSL <url>/setup_project.sh | bash
 #   OR:  chmod +x setup_project.sh && ./setup_project.sh
 #
-# Generated on: 2025-10-04 14:24:33 IST
+# Generated on: 2025-10-04 14:38:22 IST
 # Source: https://github.com/msrajawat298/AutoDevKit
 
 set -e
@@ -18,7 +18,6 @@ set -e
 # 🎨 COLOR DEFINITIONS
 # ═══════════════════════════════════════════════════════════════
 
-# Color codes for beautiful output
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 RED='\033[0;31m'
@@ -26,6 +25,21 @@ YELLOW='\033[1;33m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 NC='\033[0m'  # No Color
+BRIGHT_GREEN='\033[1;32m'
+BRIGHT_BLUE='\033[1;34m'
+BRIGHT_RED='\033[1;31m'
+BRIGHT_YELLOW='\033[1;33m'
+BRIGHT_PURPLE='\033[1;35m'
+BRIGHT_CYAN='\033[1;36m'
+WHITE='\033[1;37m'
+ORANGE='\033[0;33m'
+MAGENTA='\033[0;95m'
+LIGHT_GRAY='\033[0;37m'
+DARK_GRAY='\033[1;30m'
+BG_RED='\033[41m'
+BG_GREEN='\033[42m'
+BG_YELLOW='\033[43m'
+BG_BLUE='\033[44m'
 
 # ═══════════════════════════════════════════════════════════════
 # 🖨️ UI FUNCTIONS
@@ -34,13 +48,13 @@ NC='\033[0m'  # No Color
 print_header() {
     printf "${BRIGHT_PURPLE}\n"
     printf "╔══════════════════════════════════════════════════════════╗\n"
-    printf "║                                                          ║\n"
-    printf "║                  🚀 ${WHITE}AutoDevKit${BRIGHT_PURPLE} 🚀                        ║\n"
-    printf "║                                                          ║\n"
-    printf "║     ${BRIGHT_CYAN}Choose your technology and get instant setup!${BRIGHT_PURPLE}        ║\n"
-    printf "║                                                          ║\n"
-    printf "║     ${LIGHT_GRAY}Press '0' at any prompt to exit${BRIGHT_PURPLE}                     ║\n"
-    printf "║                                                          ║\n"
+    printf "║${BRIGHT_PURPLE}                                                          ${BRIGHT_CYAN}║\n"
+    printf "║${BRIGHT_PURPLE}                  🚀 ${BRIGHT_YELLOW}AutoDevKit${BRIGHT_PURPLE} 🚀                        ${BRIGHT_CYAN}║\n"
+    printf "║${BRIGHT_PURPLE}                                                          ${BRIGHT_CYAN}║\n"
+    printf "║${BRIGHT_GREEN}     Choose your technology and get instant setup!        ${BRIGHT_CYAN}║\n"
+    printf "║${BRIGHT_PURPLE}                                                          ${BRIGHT_CYAN}║\n"
+    printf "║${WHITE}     Press '0' at any prompt to exit                     ${BRIGHT_CYAN}║\n"
+    printf "║${BRIGHT_PURPLE}                                                          ${BRIGHT_CYAN}║\n"
     printf "╚══════════════════════════════════════════════════════════╝\n"
     printf "${NC}\n"
 }
@@ -136,7 +150,8 @@ ask_project_type() {
     printf "  ${BLUE}2)${NC} Existing project\n"
     printf "  ${RED}0)${NC} Exit setup\n"
     printf "\n"
-    read -p "${YELLOW}Choose (1-2, or 0 to exit): ${NC}" PROJECT_SETUP
+    printf "${YELLOW}Choose (1-2, or 0 to exit): ${NC}"
+    read PROJECT_SETUP
     
     case $PROJECT_SETUP in
         1) 
@@ -170,7 +185,8 @@ ask_technology() {
     printf "  ${ORANGE}4)${NC} ${WHITE}General JavaScript/TypeScript${NC} ${LIGHT_GRAY}(Universal)${NC}\n"
     printf "  ${RED}0)${NC} Exit setup\n"
     printf "\n"
-    read -p "${YELLOW}Choose (1-4, or 0 to exit): ${NC}" TECH_CHOICE
+    printf "${YELLOW}Choose (1-4, or 0 to exit): ${NC}"
+    read TECH_CHOICE
     
     case $TECH_CHOICE in
         1) 
@@ -211,7 +227,8 @@ ask_demo_mode() {
     printf "  ${BLUE}n)${NC} No, just set up the tools\n"
     printf "  ${RED}0)${NC} Exit setup\n"
     printf "\n"
-    read -p "${YELLOW}Choose (y/n, or 0 to exit): ${NC}" DEMO_CHOICE
+    printf "${YELLOW}Choose (y/n, or 0 to exit): ${NC}"
+    read DEMO_CHOICE
     
     case $DEMO_CHOICE in
         [yY]|[yY][eE][sS]|yes|YES)

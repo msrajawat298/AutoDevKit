@@ -120,22 +120,15 @@ EOF
     # Add generation timestamp
     sed -i '' "s/GENERATION_DATE/$(date '+%Y-%m-%d %H:%M:%S %Z')/" "$output_file"
 
-    # Add colors (inline)
-    cat >> "$output_file" << 'EOF'
-# ═══════════════════════════════════════════════════════════════
-# 🎨 COLOR DEFINITIONS
-# ═══════════════════════════════════════════════════════════════
-
-# Color codes for beautiful output
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-NC='\033[0m'  # No Color
-
-EOF
+    # Add colors from colors.sh
+    echo "# ═══════════════════════════════════════════════════════════════" >> "$output_file"
+    echo "# 🎨 COLOR DEFINITIONS" >> "$output_file"  
+    echo "# ═══════════════════════════════════════════════════════════════" >> "$output_file"
+    echo "" >> "$output_file"
+    
+    # Extract color definitions from colors.sh (skip shebang and comments, keep assignments and NC)
+    grep -E "^[A-Z_]*='" scripts/ui/colors.sh >> "$output_file"
+    echo "" >> "$output_file"
 
     # Extract and add UI functions
     echo "# ═══════════════════════════════════════════════════════════════" >> "$output_file"

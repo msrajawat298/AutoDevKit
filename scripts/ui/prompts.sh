@@ -15,7 +15,8 @@ ask_project_type() {
     printf "  ${BLUE}2)${NC} Existing project\n"
     printf "  ${RED}0)${NC} Exit setup\n"
     printf "\n"
-    read -p "${YELLOW}Choose (1-2, or 0 to exit): ${NC}" PROJECT_SETUP
+    printf "${YELLOW}Choose (1-2, or 0 to exit): ${NC}"
+    read PROJECT_SETUP
     
     case $PROJECT_SETUP in
         1) 
@@ -49,7 +50,8 @@ ask_technology() {
     printf "  ${ORANGE}4)${NC} ${WHITE}General JavaScript/TypeScript${NC} ${LIGHT_GRAY}(Universal)${NC}\n"
     printf "  ${RED}0)${NC} Exit setup\n"
     printf "\n"
-    read -p "${YELLOW}Choose (1-4, or 0 to exit): ${NC}" TECH_CHOICE
+    printf "${YELLOW}Choose (1-4, or 0 to exit): ${NC}"
+    read TECH_CHOICE
     
     case $TECH_CHOICE in
         1) 
@@ -90,7 +92,8 @@ ask_demo_mode() {
     printf "  ${BLUE}n)${NC} No, just set up the tools\n"
     printf "  ${RED}0)${NC} Exit setup\n"
     printf "\n"
-    read -p "${YELLOW}Choose (y/n, or 0 to exit): ${NC}" DEMO_CHOICE
+    printf "${YELLOW}Choose (y/n, or 0 to exit): ${NC}"
+    read DEMO_CHOICE
     
     case $DEMO_CHOICE in
         [yY]|[yY][eE][sS]|yes|YES)
