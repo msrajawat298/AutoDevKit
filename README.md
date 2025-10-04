@@ -20,12 +20,36 @@ Sets up a professional development environment with **automatic code formatting*
 
 ## 🚀 **Quick Start**
 
+### **Method 1: One-liner Installation (Recommended)**
 ```bash
-# Clone this repository
-git clone <your-repo-url>
-cd dev-setup-wizard
+# Download and run installer (downloads all modular components)
+curl -fsSL https://raw.githubusercontent.com/msrajawat298/AutoDevKit/main/install.sh | bash
+
+# Then run the setup
+cd autodevkit
+./setup.sh
+```
+
+### **Method 2: Git Clone**
+```bash
+# Clone the repository
+git clone https://github.com/msrajawat298/AutoDevKit.git
+cd AutoDevKit
 
 # Run the setup wizard
+chmod +x setup.sh
+./setup.sh
+```
+
+### **Method 3: Download Archive**
+```bash
+# Download the latest release archive
+curl -L -o autodevkit.tar.gz https://github.com/msrajawat298/AutoDevKit/archive/main.tar.gz
+tar -xzf autodevkit.tar.gz
+cd AutoDevKit-main
+
+# Run setup
+chmod +x setup.sh
 ./setup.sh
 ```
 
