@@ -8,6 +8,8 @@
 
 ## 🎯 **What This Does**
 
+![Demo](./demo.gif)
+
 Sets up a professional development environment with **automatic code formatting**, **linting**, and **commit validation** in under 60 seconds!
 
 ### ✨ **Features**
