@@ -17,10 +17,19 @@ Sets up a professional development environment with **automatic code formatting*
 - 🪝 **Git hooks** with Husky
 - 🎬 **Interactive setup wizard**
 - 🛠 **Technology-specific configurations**
+- 📦 **Single-file distribution** - zero dependencies
+- 🔧 **Modular architecture** - easy to maintain
+- 🤖 **Automated build system** - auto-generates single file
 
 ## 🚀 **Quick Start**
 
-### **Method 1: One-liner Installation (Recommended)**
+### **🌟 Method 1: Single-file Installation (Easiest)**
+```bash
+# One command - zero dependencies!
+curl -fsSL https://raw.githubusercontent.com/msrajawat298/AutoDevKit/main/setup_project.sh | bash
+```
+
+### **Method 2: Modular Installation**
 ```bash
 # Download and run installer (downloads all modular components)
 curl -fsSL https://raw.githubusercontent.com/msrajawat298/AutoDevKit/main/install.sh | bash
@@ -30,7 +39,7 @@ cd autodevkit
 ./setup.sh
 ```
 
-### **Method 2: Git Clone**
+### **Method 3: Git Clone (For Developers)**
 ```bash
 # Clone the repository
 git clone https://github.com/msrajawat298/AutoDevKit.git
@@ -41,7 +50,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-### **Method 3: Download Archive**
+### **Method 4: Download Archive**
 ```bash
 # Download the latest release archive
 curl -L -o autodevkit.tar.gz https://github.com/msrajawat298/AutoDevKit/archive/main.tar.gz
@@ -54,6 +63,15 @@ chmod +x setup.sh
 ```
 
 That's it! Follow the interactive prompts and you're done! 🎉
+
+## 🔄 **Installation Methods Comparison**
+
+| Method | Dependencies | File Size | Best For |
+|--------|-------------|-----------|----------|
+| **Single-file** | ✅ Zero | 22KB | End users, quick setup |
+| **Modular** | Requires scripts/ | ~15 files | Developers, customization |
+| **Git Clone** | Git required | Full repo | Contributors, development |
+| **Archive** | Manual extraction | Full repo | Offline usage |
 
 ## 🛠 **Supported Technologies**
 
@@ -260,19 +278,68 @@ setup.sh
 └── Updates → package.json (scripts & deps)
 ```
 
-## 🚀 **For Maintainers**
+## � **Development & Build System**
+
+AutoDevKit uses a **modular architecture** with an **automated build system** that creates both versions:
+
+### **🏗️ For Developers**
+
+```bash
+# Development commands
+./dev.sh build          # Build single-file version
+./dev.sh watch          # Auto-rebuild on changes
+./dev.sh test           # Test generated files
+./dev.sh dev            # Start development mode
+./dev.sh release        # Full release process
+
+# Project status
+./dev.sh status         # Show current state
+./dev.sh help           # Show all commands
+```
+
+### **📁 Architecture Overview**
+
+```
+AutoDevKit/
+├── setup.sh                    # Modular version (for developers)
+├── setup_project.sh            # Single-file version (auto-generated)
+├── build.sh                    # Builds single file from modules
+├── dev.sh                      # Development manager
+└── scripts/                    # Modular components
+    ├── ui/                     # User interface modules
+    ├── config/                 # Configuration generators
+    ├── core/                   # Core functionality
+    └── demo/                   # Demo features
+```
+
+### **🔄 Development Workflow**
+
+1. **Edit modules** in `scripts/` directory
+2. **Auto-rebuild** with `./dev.sh watch` OR manual `./dev.sh build`
+3. **Test changes** with `./dev.sh test`
+4. **Single file updates automatically** - ready to share!
+
+### **✨ Benefits**
+- 🔧 **Modular development** - easy to maintain
+- 📦 **Single-file distribution** - easy to share
+- 🤖 **Automatic building** - no manual work
+- 🧪 **Comprehensive testing** - quality assurance
+
+## �🚀 **For Maintainers**
 
 ### **Adding New Technologies:**
-1. Add case in `ask_technology()` function
-2. Create technology-specific configs in setup functions
-3. Add appropriate dependencies
-4. Update this README
+1. Add case in `ask_technology()` function in `scripts/ui/prompts.sh`
+2. Create technology-specific configs in `scripts/config/*.sh`
+3. Add dependencies in `scripts/core/dependencies.sh`
+4. Run `./dev.sh build` to update single file
+5. Update this README
 
 ### **Modifying Configurations:**
-1. Test with sample projects
-2. Ensure no breaking changes
-3. Update documentation
-4. Test demo mode works
+1. Edit relevant module in `scripts/` directory
+2. Test with `./dev.sh test-modules`
+3. Rebuild with `./dev.sh build`
+4. Test with sample projects
+5. Ensure no breaking changes
 
 ## 📄 **License**
 
