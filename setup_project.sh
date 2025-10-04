@@ -9,7 +9,7 @@
 # Usage: curl -fsSL <url>/setup_project.sh | bash
 #   OR:  chmod +x setup_project.sh && ./setup_project.sh
 #
-# Generated on: 2025-10-04 14:46:25 IST
+# Generated on: 2025-10-04 14:53:30 IST
 # Source: https://github.com/msrajawat298/AutoDevKit
 
 set -e
@@ -92,7 +92,8 @@ show_config() {
     printf "  ${BLUE}n)${NC} No, let me change something\n" 
     printf "  ${RED}0)${NC} Exit setup\n"
     printf "\n"
-    read -p "${YELLOW}Continue? (y/n, or 0 to exit): ${NC}" CONTINUE_CHOICE
+    printf "${YELLOW}Continue? (y/n, or 0 to exit): ${NC}"
+    read CONTINUE_CHOICE
     
     case $CONTINUE_CHOICE in
         [yY]|[yY][eE][sS]|yes|YES)

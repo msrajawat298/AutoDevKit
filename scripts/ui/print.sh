@@ -56,7 +56,8 @@ show_config() {
     printf "  ${BLUE}n)${NC} No, let me change something\n" 
     printf "  ${RED}0)${NC} Exit setup\n"
     printf "\n"
-    read -p "${YELLOW}Continue? (y/n, or 0 to exit): ${NC}" CONTINUE_CHOICE
+    printf "${YELLOW}Continue? (y/n, or 0 to exit): ${NC}"
+    read CONTINUE_CHOICE
     
     case $CONTINUE_CHOICE in
         [yY]|[yY][eE][sS]|yes|YES)

@@ -26,7 +26,7 @@ Sets up a professional development environment with **automatic code formatting*
 ### **🌟 Method 1: Single-file Installation (Easiest)**
 ```bash
 # One command - zero dependencies!
-curl -fsSL https://raw.githubusercontent.com/msrajawat298/AutoDevKit/main/setup_project.sh | bash
+curl -fsSL https://raw.githubusercontent.com/msrajawat298/AutoDevKit/main/setup_project.sh -o setup_project.sh
 ```
 
 ### **Method 2: Modular Installation**
